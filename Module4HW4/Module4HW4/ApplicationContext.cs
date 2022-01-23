@@ -16,6 +16,7 @@ public class ApplicationContext : DbContext
     public DbSet<EmployeeProject> EmployeeProjects { get; set; }
     public DbSet<Office> Offices { get; set; }
     public DbSet<Title> Titles { get; set; }
+    public DbSet<Client> Clients { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -24,5 +25,6 @@ public class ApplicationContext : DbContext
         modelBuilder.ApplyConfiguration(new ProjectConfiguration());
         modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
         modelBuilder.ApplyConfiguration(new EmployeeProjectConfiguration());
+        modelBuilder.ApplyConfiguration(new ClientConfiguration());
     }
 }

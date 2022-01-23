@@ -13,5 +13,9 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
         builder.Property(p => p.Name).IsRequired().HasColumnName("Name").HasMaxLength(50);
         builder.Property(p => p.Budget).IsRequired().HasColumnName("Budget").HasColumnType("money");
         builder.Property(p => p.StartedDate).IsRequired().HasColumnName("StartedDate").HasMaxLength(7);
+
+        builder.HasOne(p => p.Client)
+            .WithMany(c => c.Projects)
+            .HasForeignKey(h => h.ClientId);
     }
 }
